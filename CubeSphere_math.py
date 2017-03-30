@@ -160,9 +160,9 @@ def CSgrid_mesh_one(Nx,N_plot=12):
     
     return combine_piecewise([mesh_combined_1,mesh_combined_2])
 
-def CSgrid_mesh_all(Nx):
+def CSgrid_mesh_all(Nx,N_plot=12):
     
-    return one_to_all(CSgrid_mesh_one(Nx))
+    return one_to_all(CSgrid_mesh_one(Nx,N_plot=N_plot))
     
 '''
 =========
@@ -213,12 +213,37 @@ Only for the stretched cube-sphere
 =========
 '''
 def cart2sph(xyz):
-    pass
+    
+    # r-lat-lon
+    rll = np.zeros_like(xyz)
+    
+    tho2 = xyz[0,:]**2+xyz[1,:]**2 # tho^2 = x^2+y^2
+    rll[0,:] = np.sqrt(tho2+xyz[2,:]**2)
+    rll[1,:] = np.arctan(xyz[2,:]/np.sqrt(tho2))
+    rll[2,:] = np.arctan2(xyz[1,:],xyz[0,:]) + np.pi
+    
+    return rll
 
-def sph2cart(r_lat_lon):
-    xyz = np.zeros_like(r_lat_lon)
+def sph2cart(rll):
+    xyz = np.zeros_like(rll)
+    
+    xyz[0,:] = rll[0,:]*np.cos(rll[1,:])*np.cos(rll[2,:])
+    xyz[1,:] = rll[0,:]*np.cos(rll[1,:])*np.sin(rll[2,:])
+    xyz[2,:] = rll[0,:]*np.sin(rll[1,:])
 
     return xyz
 
-def Schmidt_transform():
-    pass
+def Schmidt_transform(v,c=1.0):
+    
+    D = (1-c**2)/(1+c**2)
+    
+    r_lat_lon = cart2sph(v)
+    
+    r_lat_lon[1,:] = np.arcsin( (D+np.sin(r_lat_lon[1,:])) /
+                                (1+D*np.sin(r_lat_lon[1,:])) )
+    
+    v_new = sph2cart(r_lat_lon)
+    
+    return v_new
+
+
