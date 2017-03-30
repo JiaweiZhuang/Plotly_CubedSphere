@@ -1,0 +1,27 @@
+Cube-sphere grid illustration with interactive widgets 
+
+Use the Plotly python API to directly show the 3D interactive graphics on the web page (convert python codes to javascript).
+
+=== Code structure ==
+
+---modules to be imported---
+CubeSphere_math.py: 
+- Do all the math (spherical geometry)
+- Generate data that can be fed to Plotly graphic methods 
+- This module itself is independent to any plotting methods
+
+Plotly_layout.py:
+- Set Plotly basic layout (background,title...)
+
+---modules to run---
+example1_step-by-step.py:
+- An intuitive way to understand cube-sphere mesh generation
+
+example2_compare-projections.py:
+- 3 types of gnomonic grids in different colors
+
+example3_stretch.py
+- stretched cube-sphere for local mesh refinement 
+
+
+Jiawei Zhuanng 04/2017
