@@ -27,12 +27,12 @@ descrip_text = ['"True equi-distant": </br>'+
                 'The default grid in GCHP/GEOS5.',
                 
                 '</br>"Traditional equi-distant": </br>'+
-                'The first cube-sphere grid, </br> with the simplest formula.</br>'+
+                'The cube-sphere grid first invented, </br> with the simplest formula.</br>'+
                 'Not uniform enough.',
                 '</br>"Equi-angular": </br>'+
                 'The grid in CAM-SE (CESM dycore) </br>'
                 'More uniform than our grid at corners, </br>'+
-                'but boxes along edges get stretched. </br>'+
+                'but boxes near edges get stretched. </br>'+
                 '(length-to-width ratio is not equal to 1)'
                 ]
 
@@ -49,7 +49,7 @@ trace_CSmesh1.update(dict(showlegend=True,name=descrip_text[1],visible="legendon
 
 data_CSmesh2 = CSmath.CSgrid_mesh_all(Nx,N_plot = N_plot,gridtype=2)
 trace_CSmesh2 = gowp.line3d(data_CSmesh2,color='green',width = width)
-trace_CSmesh2.update(dict(showlegend=True,name=descrip_text[2],visible="legendonly"))
+trace_CSmesh2.update(dict(showlegend=True,name=descrip_text[2],visible=True))
 
 data_CSedge = CSmath.CSgrid_edge_all(N_plot)
 trace_CSedge = gowp.line3d(data_CSedge,width=8)
