@@ -21,7 +21,8 @@ annotations=[
         text='<b>Rotate:</b> Left click and drag </br>'+
              '<b>Zoom in/out:</b> Scroll up/down </br>'+
              '</br>Author: Jiawei Zhuang </br>'+
-             '(jiaweizhuang@g.harvard.edu)',
+             '(jiaweizhuang@g.harvard.edu) </br>'+
+              '</br> Date Created: 03/31/2017',
         bgcolor='rgb(224,255,255)',
         showarrow=False
     )
