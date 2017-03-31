@@ -18,6 +18,7 @@ Get the layout info from another file
 =========
 '''
 layout = Plotly_layout.layout
+layout['title']='<b>Stretched Cube-Sphere</b>'
 
 '''
 =========

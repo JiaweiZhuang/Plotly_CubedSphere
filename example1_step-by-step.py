@@ -12,6 +12,7 @@ Get the layout info from another file
 =========
 '''
 layout = Plotly_layout.layout
+layout['title']='<b>Cube-Sphere Step by Step</b>'
 
 '''
 =========
@@ -58,7 +59,7 @@ trace_nodes.update(dict(visible=False))
 
 # object 8: c6 mesh on a panel: node connected by great circles
 data_connect = CSmath.CSgrid_mesh_one(N_nodes)
-trace_connect = gowp.line3d(data_connect,width=4)
+trace_connect = gowp.line3d(data_connect,width=8)
 trace_connect.update(dict(visible=False))
 
 # object 9: c24 meth on a panel
@@ -98,14 +99,22 @@ Description
 '''
 
 descrip_text = \
-    [['Step0','A sphere with lat-lon grid overlaid'],
-     ['Step1','Insert a cube and project one of its faces to the sphere'],
-     ['Step2','Same for all the other faces'],
-     ['Step3','Now the sphere is divided into 6 panels with no gaps and overlaps'],
-     ['Step4','To further generate a grid mesh, insert nodes onto panel edges'],
-     ['Step5','Connect nodes by great circles'],
-     ['Step6','Make a finer mesh (c24 ~ 4x5)'],
-     ['Step7','A full Cube Sphere mesh'],
+    [['Step0','A sphere with lat-lon grid overlaid',''],
+     ['Step1','Insert a cube and project one of its faces to the sphere',''],
+     ['Step2','Same for all the other faces',''],
+     ['Step3','Now the sphere is divided into 6 panels with no gaps and overlaps',
+      'Two polar panels are just the same as other 4 panels. </br>\
+       This structure will remove with the polar singularities and reduce the CFL constraint.'],
+     ['Step4','To further generate a grid mesh, insert nodes onto panel edges.',
+      'Here the nodes are following equi-distant spacing along the edges. </br>\
+       Other configurations are also possible. (see the next example)'],
+     ['Step5','Connect nodes by great circles to get a mesh. Now you are done!',
+      'There are many other ways to divide those 6 panels into grid meshes. </br>\
+       The algorithm here (used in GCHP/GEOS5) leads to the most uniform grid.'],
+     ['Step6','Make a finer mesh in the same way',''],
+     ['Step7','A full Cube Sphere mesh',
+      'This is called a C24 grid (24 boxes along each edge). </br>\
+       There are 24x24x6=3456 grid boxes in total, similar to the 4x5 Lat-Lon grid (3312 boxes).'],
     ]
     
 N_step = len(descrip_text)
@@ -136,7 +145,8 @@ for n in range(N_step):
     config_temp =  dict(label = descrip_text[n][0],
                         method = 'update', #need to change both objects and layout
                         args = [{'visible': visible_config[n]},
-                                {'title': descrip_text[n][1]}]
+                                {'title': '<b>'+descrip_text[n][1]+'</b>'+
+                                 '</br>'+descrip_text[n][2]}]
                         )
     button_config.append(config_temp.copy())
 
@@ -149,7 +159,7 @@ updatemenus = list([
          showactive = True,
          x = 0.0,
          xanchor = 'left',
-         y = 1.1,
+         y = 1.0,
          yanchor = 'top' 
     )
 ])

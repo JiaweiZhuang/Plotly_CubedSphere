@@ -13,20 +13,21 @@ axis_att = dict(
 
 annotations=[
     dict(
-        x=1.0,
+        x=1.1,
         y=1.0,
         xref='paper',
         yref='paper',
-        text='Left drag: rotate </br>  \
-              Right drag: move </br>   \
-              Roll: zoom in/out</br>   \
-              </br> </br> Author: Jiawei Zhuang',
+        align='left',
+        text='<b>Rotate:</b> Left click and drag </br>'+
+             '<b>Zoom in/out:</b> Scroll up/down </br>'+
+             '</br>Author: Jiawei Zhuang',
+        bgcolor='rgb(224,255,255)',
         showarrow=False
     )
     ]
 
 layout = Layout(
-    title='Cube Sphere',
+    title='',
     width=800,
     height=700,
     autosize=False,
