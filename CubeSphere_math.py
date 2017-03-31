@@ -125,7 +125,7 @@ def CSgrid_edge_all(Nx):
 
     return one_to_all(CSgrid_edge_one(Nx))
 
-def CSgrid_mesh_one(Nx,N_plot=12):
+def CSgrid_mesh_one(Nx,N_plot=12,gridtype=0):
     '''
     Nx: Grid resolution.
     
@@ -134,8 +134,8 @@ def CSgrid_mesh_one(Nx,N_plot=12):
     '''
     
     # generate nodes along two edges
-    node_1 = (great_circle(corners[0],corners[1],Nx),
-              great_circle(corners[3],corners[2],Nx))
+    node_1 = (great_circle(corners[0],corners[1],Nx,gridtype=gridtype),
+              great_circle(corners[3],corners[2],Nx,gridtype=gridtype))
 
     # connect nodes by great circles
     # For inner mesh, we can use gridtype1, whose computation is the fastest.
@@ -148,8 +148,8 @@ def CSgrid_mesh_one(Nx,N_plot=12):
     mesh_combined_1 = combine_piecewise(mesh_separate_1)
     
     # another direction
-    node_2 = (great_circle(corners[0],corners[3],Nx),
-              great_circle(corners[1],corners[2],Nx))
+    node_2 = (great_circle(corners[0],corners[3],Nx,gridtype=gridtype),
+              great_circle(corners[1],corners[2],Nx,gridtype=gridtype))
 
     mesh_separate_2  = [None]*(Nx+1)
     for n in range(Nx+1):
@@ -160,9 +160,9 @@ def CSgrid_mesh_one(Nx,N_plot=12):
     
     return combine_piecewise([mesh_combined_1,mesh_combined_2])
 
-def CSgrid_mesh_all(Nx,N_plot=12):
+def CSgrid_mesh_all(Nx,N_plot=12,gridtype=0):
     
-    return one_to_all(CSgrid_mesh_one(Nx,N_plot=N_plot))
+    return one_to_all(CSgrid_mesh_one(Nx,N_plot=N_plot,gridtype=gridtype))
     
 '''
 =========

@@ -110,7 +110,7 @@ descrip_text = \
        Other configurations are also possible. (see the next example)'],
      ['Step5','Connect nodes by great circles to get a mesh. Now you are done!',
       'There are many other ways to divide those 6 panels into grid meshes. </br>\
-       The algorithm here (used in GCHP/GEOS5) leads to the most uniform grid.'],
+       The algorithm here (used in GCHP/GEOS5) leads to a highly uniform grid.'],
      ['Step6','Make a finer mesh in the same way',''],
      ['Step7','A full Cube Sphere mesh',
       'This is called a C24 grid (24 boxes along each edge). </br>\

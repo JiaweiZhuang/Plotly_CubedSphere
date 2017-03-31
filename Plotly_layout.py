@@ -20,7 +20,8 @@ annotations=[
         align='left',
         text='<b>Rotate:</b> Left click and drag </br>'+
              '<b>Zoom in/out:</b> Scroll up/down </br>'+
-             '</br>Author: Jiawei Zhuang',
+             '</br>Author: Jiawei Zhuang </br>'+
+             '(jiaweizhuang@g.harvard.edu)',
         bgcolor='rgb(224,255,255)',
         showarrow=False
     )
@@ -28,7 +29,7 @@ annotations=[
 
 layout = Layout(
     title='',
-    width=800,
+    width=1000,
     height=700,
     autosize=False,
     hovermode=False,
