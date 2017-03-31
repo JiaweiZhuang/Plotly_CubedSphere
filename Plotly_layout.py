@@ -32,23 +32,19 @@ layout = Layout(
     autosize=False,
     hovermode=False,
     dragmode="turntable",
-    scene=dict(xaxis=axis_att,yaxis=axis_att,zaxis=axis_att),
-    annotations=annotations
-)
-
-'''
-    camera=dict(
-        up=dict(
-            x=0,
-            y=0,
-            z=1 
-        ),  
-        eye=dict(
-            x=-1.7428,
-            y=1.0707,
-            z=0.7100,
-        )   
-    ),  
-    aspectratio = dict( x=1, y=1, z=0.7 ),
-    aspectmode = 'manual'
-'''
+    annotations=annotations,
+    scene=dict(xaxis=axis_att,yaxis=axis_att,zaxis=axis_att,
+                camera=dict(
+                    up=dict(
+                        x=0,
+                        y=0,
+                        z=1 
+                    ),  
+                    eye=dict(
+                        x=0.8,
+                        y=0.8,
+                        z=0.8,
+                    )   
+                ),  
+    )
+    )
