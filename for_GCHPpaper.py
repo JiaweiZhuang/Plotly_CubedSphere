@@ -10,14 +10,14 @@ layout = Plotly_layout.layout
 layout['annotations'] = [] # remove my personal signature
 
 # tweak initial camera angle (https://plot.ly/python/3d-camera-controls/)
-layout['scene']['camera']['eye'] = {'x': 1.4, 'y': -0.6, 'z': 0.4}
+layout['scene']['camera']['eye'] = {'x': 1.4, 'y': -0.6, 'z': 0.6}
 
 # =======================
 # make individual objects
 # =======================
 
 # object 1: blue, transparent sphere
-trace_sphere = gowp.sphere(r=0.985, alpha=0.6,color='white')
+trace_sphere = gowp.sphere(r=0.985, alpha=0.5,color='white')
 
 # object 2: white, solid sphere
 trace_solidsphere = gowp.sphere(r=0.99,alpha=1.0,color='white')
