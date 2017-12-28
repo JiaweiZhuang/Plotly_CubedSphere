@@ -16,7 +16,7 @@ layout['scene']['camera']['eye'] = {'x': 1.4, 'y': -0.6, 'z': 0.6}
 # make individual objects
 # =======================
 
-# object 1: blue, transparent sphere
+# object 1: transparent sphere
 trace_sphere = gowp.sphere(r=0.985, alpha=0.5,color='white')
 
 # object 2: white, solid sphere
